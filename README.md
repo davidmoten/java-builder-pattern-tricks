@@ -100,7 +100,7 @@ Book book = Book //
   .build();
 ```
 
-Now let's improve the builder. We have to consider the `Book` object itself. It has two mandatory fields `author` and `title` and one optional field `category`. Let's rewrite the `Book` builder. 
+Now let's improve the builder. We have to consider the `Book` object itself. It has two mandatory fields `author` and `title` and one optional field `category`. Let's make a little change to the builder. 
 
 
 ```java
@@ -166,4 +166,14 @@ public final class Book {
         }     
     }
 }
+```
+
+The *builder()* method has been replaced with a static `author` method and the `author` method is no longer public in the builder. We've shortened the build process now by a line:
+
+```java
+Book book = Book
+  .author("Charles Dickens")
+  .title("Great Expectations")
+  .category("Novel")
+  .build();
 ```

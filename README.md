@@ -8,15 +8,17 @@ So what are these extra tricks?
  * Get compile time indications as the class evolves with field changes
  * Type safety with builder chaining (not just method chaining!)
 
-Let's start with a basic builder pattern. We'll consider how to build a `Book` object:
+Let's start with a basic builder pattern and then we'll improve it. We'll consider how to build a `Book` object:
 
 ```java
 public final class Book {
+    // Make fields final!
     private final String author;
     private final String title;
     private final Optional<String> category;
     
     private Book(Builder builder) {
+        //Be a bit defensive
         Preconditions.checkNotNull(builder.author);
         Preconditions.checkArgument(builder.author.trim().length() > 0);
         Preconditions.checkNotNull(builder.title);

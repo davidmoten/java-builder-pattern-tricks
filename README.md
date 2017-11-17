@@ -7,6 +7,7 @@ So what are these extra tricks?
  * Mandatory parameters with builder chaining C
  * Get compile time indications as the class evolves with field changes
  * Type safety with builder chaining (not just method chaining!)
+ * Force formatting in IDEs of method chaining (avoid long lines of code!)
 
 Let's start with a basic builder pattern and then we'll improve it. We'll consider how to build a `Book` object:
 
@@ -67,5 +68,15 @@ public final class Book {
 }
 ```
 
+To use this basic builder:
+
+```java
+Book book = Book
+  .builder()
+  .author("Charles Dickens")
+  .title("Great Expectations")
+  .category("Novel")
+  .build();
+```
 
 

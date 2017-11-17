@@ -86,10 +86,11 @@ Book book = Book
   .category("Novel")
   .build();
 ```
+Note that I haven't prefixed the methods with `set` or `with`. Seems like pointless noise to me but go with whatever style you like.
 
-Looks ok doesn't it, but we can do better. 
+So that example looks ok but we can do better. 
 
-The first thing I'll note is that when you're chaining methods you end up with something much more readable when you put one method per line as above. You can force an IDE to do this by **adding an empty comment at the end of each line**:
+The first thing I'll note is that when you're chaining methods you end up with something much more readable when you put one method per line as above. You can force an IDE to do honour this when it formats code by **adding an empty comment at the end of each line**:
 
 ```java
 Book book = Book //
@@ -178,7 +179,7 @@ Book book = Book
   .build();
 ```
 
-However, we haven't captured in a type-safe way that `title` is a mandatory field. This call below compiles but will throw a `NullPointerException`:
+However, we haven't captured in a type-safe way that `title` is a mandatory field. This call below compiles but will throw a `NullPointerException` at runtime only:
 
 ```java
 // will throw NPE!
@@ -265,7 +266,7 @@ Book book = Book
   .build();
 ```
 
-In fact, the new builder forces us to follow this exact method order in that you can't swap the order of `author`,`title` and `category` methods.
+In fact, the new builder forces us to follow an exact method order in that you can't swap the order of `author`,`title` and `category` methods.
 
 ```java
 Book book = Book
@@ -291,8 +292,10 @@ See that final `.build()` method? Sometimes we can get rid of that too. If every
 Book book = Book
   .author("Charles Dickens")
   .title("Great Expectations")
-  .build();
+  .category("Novel");
 ```
+
+That's one less line of code again which is nice but can only be achieved when all fields are mandatory.
 
 
 

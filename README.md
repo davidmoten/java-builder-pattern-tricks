@@ -56,15 +56,23 @@ public final class Book {
         
         public Builder author(String author) {
             this.author = author;
+            return this;
         }
         
         public Builder title(String title) {
             this.title = title;
+            return this;
+        }
+        
+        public Builder category(String category) {
+            this.category = Optional.of(category);
+            return this;
         }
         
         public Book build() {
             return new Book(this);
-        }      
+        }   
+    }
 }
 ```
 
@@ -92,5 +100,70 @@ Book book = Book //
   .build();
 ```
 
+Now let's improve the builder. We have to consider the `Book` object itself. It has two mandatory fields `author` and `title` and one optional field `category`. Let's rewrite the `Book` builder. 
 
 
+```java
+public final class Book {
+    // Make fields final!
+    private final String author;
+    private final String title;
+    private final Optional<String> category;
+    
+    private Book(Builder builder) {
+        //Be a bit defensive
+        Preconditions.checkNotNull(builder.author);
+        Preconditions.checkArgument(builder.author.trim().length() > 0);
+        Preconditions.checkNotNull(builder.title);
+        Preconditions.checkArgument(builder.title.trim().length() > 0);
+        Preconditions.checkNotNull(category);
+        this.author = builder.author;
+        this.title = title;
+        this.category = category;
+    }
+    
+    public String author() {
+        return author;
+    }
+    
+    public String title() {
+        return title();
+    }
+    
+    public Optional<Category> category() {
+       return category;
+    }
+    
+    public static Builder author(String author) {
+        return new Builder().author();
+    }
+    
+    public static final class Builder {
+        String author;
+        String title;
+        Optional<String> category = Optional.empty();
+        
+        Builder() {
+        }
+        
+        Builder author(String author) {
+            this.author = author;
+            return this;
+        }
+        
+        public Builder title(String title) {
+            this.title = title;
+            return this;
+        }
+        
+        public Builder category(String category) {
+            this.category = Optional.of(category);
+            return this;
+        }
+        
+        public Book build() {
+            return new Book(this);
+        }     
+    }
+}
+```

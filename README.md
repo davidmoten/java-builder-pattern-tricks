@@ -178,9 +178,16 @@ Book book = Book
   .build();
 ```
 
-However, we haven't captured in a type-safe way that `title` is a mandatory field. Let's do that now with a *builder chaining* trick:
+However, we haven't captured in a type-safe way that `title` is a mandatory field. This call below compiles but will throw a `NullPointerException`:
 
 ```java
+// will throw NPE!
+Book book = Book
+  .author("Charles Dickens")
+  .build();
+```
+We can fix this problem with a *builder chaining* trick:
+
 ```java
 public final class Book {
     // Make fields final!
@@ -239,12 +246,12 @@ public final class Book {
         }
         
         Builder2 category(String category) {
-            b.category = category;
+            b.category = Optional.of(category);
             return this;
         }
                 
         public Book build() {
-            return new Book(this);
+            return new Book(b);
         }     
     }
 }

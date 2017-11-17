@@ -46,9 +46,9 @@ public final class Book {
     }
     
     public static final class Builder {
-        final String author;
-        final String title;
-        final Optional<String> category = Optional.empty();
+        String author;
+        String title;
+        Optional<String> category = Optional.empty();
         
         Builder() {
         }

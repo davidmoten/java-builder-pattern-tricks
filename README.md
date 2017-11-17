@@ -1,12 +1,12 @@
 # java-builder-pattern-tricks
-The java builder pattern has been described frequently but is nearly always described in a very basic form without revealing its true potential! 
+The humble java builder pattern has been described frequently but is nearly always described in a very basic form without revealing its true potential! 
 
 So what are these extra tricks?
 
  * Shortcut the `builder()` method
- * Mandatory parameters with builder chaining C
+ * Mandatory parameters with builder chaining (not just method chaining!)
  * Get compile time indications as the class evolves with field changes
- * Type safety with builder chaining (not just method chaining!)
+ * Build generic signatures with builder chaining
  * Force formatting in IDEs of method chaining (avoid long lines of code!)
 
 Let's start with a basic builder pattern and then we'll improve it. We'll consider how to build a `Book` object:
@@ -176,4 +176,77 @@ Book book = Book
   .title("Great Expectations")
   .category("Novel")
   .build();
+```
+
+However, we haven't captured in a type-safe way that `title` is a mandatory field. Let's do that now with a *builder chaining* trick:
+
+```java
+```java
+public final class Book {
+    // Make fields final!
+    private final String author;
+    private final String title;
+    private final Optional<String> category;
+    
+    private Book(Builder builder) {
+        //Be a bit defensive
+        Preconditions.checkNotNull(builder.author);
+        Preconditions.checkArgument(builder.author.trim().length() > 0);
+        Preconditions.checkNotNull(builder.title);
+        Preconditions.checkArgument(builder.title.trim().length() > 0);
+        Preconditions.checkNotNull(category);
+        this.author = builder.author;
+        this.title = title;
+        this.category = category;
+    }
+    
+    public String author() {
+        return author;
+    }
+    
+    public String title() {
+        return title();
+    }
+    
+    public Optional<Category> category() {
+       return category;
+    }
+    
+    public static Builder author(String author) {
+        return new Builder(author);
+    }
+    
+    public static final class Builder {
+        final String author;
+        String title;
+        Optional<String> category = Optional.empty();
+        
+        Builder(String author) {
+            this.author = author;
+        }
+        
+        Builder2 title(String title) {
+            this.title = title;
+            return new Builder2(this);
+        }
+    }
+    
+    public static final class Builder2 {
+        final Builder b;
+        
+        Builder2(Builder b) {
+            this.b = b;
+        }
+        
+        Builder2 category(String category) {
+            b.category = category;
+            return this;
+        }
+                
+        public Book build() {
+            return new Book(this);
+        }     
+    }
+}
+```
 ```

@@ -79,4 +79,18 @@ Book book = Book
   .build();
 ```
 
+Looks ok doesn't it, but we can do better. 
+
+The first thing I'll note is that when you're chaining methods you end up with something much more readable when you put one method per line as above. You can force an IDE to do this by adding an empty comment at the end of each line:
+
+```java
+Book book = Book //
+  .builder() //
+  .author("Charles Dickens") //
+  .title("Great Expectations") //
+  .category("Novel") //
+  .build();
+```
+
+
 

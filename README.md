@@ -1,5 +1,5 @@
 # java-builder-pattern-tricks
-The humble java builder pattern has been described frequently but is nearly always described in a very basic form without revealing its true potential! 
+The humble java builder pattern has been described frequently but is nearly always described in a very basic form without revealing its true potential! If you push the pattern a bit harder then you get can elegant, concise, type-safe factory methods.
 
 So what are these extra tricks?
 
@@ -256,4 +256,44 @@ public final class Book {
     }
 }
 ```
+Now if we try the previous example it won't compile. That's really good because finding bugs at compile time is MUCH better than finding out at runtime!
+
+```java
+// will not compile!
+Book book = Book
+  .author("Charles Dickens")
+  .build();
 ```
+
+In fact, the new builder forces us to follow this exact method order in that you can't swap the order of `author`,`title` and `category` methods.
+
+```java
+Book book = Book
+  .author("Charles Dickens")
+  .title("Great Expectations")
+  .category("Novel")
+  .build();
+```
+
+Hey `category` is an optional parameter isn't it? Let's test that:
+
+```java
+Book book = Book
+  .author("Charles Dickens")
+  .title("Great Expectations")
+  .build();
+```
+Yep that compiles, no problem.
+
+See that final `.build()` method? Sometimes we can get rid of that too. If every field was mandatory and they were all builder chained then you could do this:
+
+```java
+Book book = Book
+  .author("Charles Dickens")
+  .title("Great Expectations")
+  .build();
+```
+
+
+
+

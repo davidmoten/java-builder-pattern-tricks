@@ -1,9 +1,11 @@
 # java-builder-pattern-tricks
-Tricks to use with the java builder pattern
-
 The java builder pattern has been described frequently but is nearly always described in a very basic form without revealing its true potential! 
 
 So what are these extra tricks?
+
+ * More implicit typing
+ * No unnecessary methods
+ * Builder chaining (not just method chaining!)
 
 Let's start with a basic builder pattern. We'll consider how to build a `Book` object:
 

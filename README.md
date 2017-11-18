@@ -93,7 +93,8 @@ public final class Book {
 To use this basic builder:
 
 ```java
-Book book = Book.builder().author("Charles Dickens").title("Great Expectations").category("Novel").build();
+Book book = Book.builder().author("Charles Dickens").title("Great Expectations")
+    .category("Novel").build();
 ```
 Note that I haven't prefixed the methods with `set` or `with`. Seems like pointless noise to me but go with whatever style you like.
 

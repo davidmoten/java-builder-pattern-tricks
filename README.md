@@ -112,7 +112,7 @@ Book book = Book //
   .build();
 ```
 ### Trick 2: Enforce mandatory fields at compile time
-Now let's improve the builder. We have to consider the `Book` object itself. It has two mandatory fields `author` and `title` and one optional field `category`. Let's make a little change to the builder. 
+Now let's improve the builder. We have to consider the `Book` object itself. It has two mandatory fields `author` and `title` and one optional field `category`. Let's change the builder pattern to use *builder chaining*.
 
 
 ```java

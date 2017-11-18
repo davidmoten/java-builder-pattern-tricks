@@ -374,6 +374,37 @@ public final class Tuple3<A,B,C> {
 }
 
 public final class Tuples {
+
+    public static <T> Builder1<T> value(T t){
+        return new Builder1<T>(t);
+    }
+    
+    public static final class Builder1<A> {
+        private final A value1;
+        private Builder1(A value1) {
+            this.value1 = value1;
+        }
+        public <B> value(A value2) {
+            return new Builder2<A, B>(value1, value2);
+        }
+    }
+    
+    public static final class Builder2<A, B> {
+        private final A value1;
+        private final B value2;
+        private Builder2(A value1, B value2) {
+            this.value1 = value1;
+            this.value2 = value2;
+        }
+        public <C> Builder3<A, B, C> value(C value3) {
+            return new Builder3<A, B, C>(value1, value2);
+        }
+        
+        public Tuple2<A,B> build() {
+            return new Tuple2<A,B>(value1, value2);
+        }
+    }
+    
 }
 
 

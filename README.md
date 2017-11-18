@@ -25,7 +25,7 @@ public final class Book {
     private final String title;
     private final Optional<String> category;
     
-    //should not be public/protected
+    //should not be public
     Book(Builder builder) {
         //Be a bit defensive
         Preconditions.checkNotNull(builder.author);

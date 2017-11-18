@@ -26,7 +26,7 @@ public final class Book {
     private final Optional<String> category;
     
     //should not be public
-    Book(Builder builder) {
+    private Book(Builder builder) {
         //Be a bit defensive
         Preconditions.checkNotNull(builder.author);
         Preconditions.checkArgument(builder.author.trim().length() > 0);
@@ -60,7 +60,7 @@ public final class Book {
         Optional<String> category = Optional.empty();
         
         // should not be public to force use of the static builder() method
-        Builder() {
+        private Builder() {
         }
         
         public Builder author(String author) {
@@ -155,7 +155,7 @@ public final class Book {
         String title;
         Optional<String> category = Optional.empty();
         
-        Builder(String author) {
+        private Builder(String author) {
             this.author = author;
         }
        
@@ -236,7 +236,7 @@ public final class Book {
         String title;
         Optional<String> category = Optional.empty();
         
-        Builder(String author) {
+        private Builder(String author) {
             this.author = author;
         }
         

@@ -323,6 +323,26 @@ Book book = Book
 
 That's one less line of code again which is nice but can only be achieved when all fields are mandatory.
 
+To achieve this just replace this code:
+
+```java
+        Builder2 category(String category) {
+            b.category = Optional.of(category);
+            return this;
+        }
+                
+        public Book build() {
+            return new Book(b);
+        }   
+```
+with
+```java
+        Book category(String category) {
+            b.category = Optional.of(category);
+            return new Book(b);
+        }
+```
+
 
 
 

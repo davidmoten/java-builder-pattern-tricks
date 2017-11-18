@@ -34,7 +34,7 @@ public final class Book {
     }
     
     public String title() {
-        return title();
+        return title;
     }
     
     public Optional<Category> category() {

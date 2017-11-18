@@ -100,7 +100,7 @@ Note that I haven't prefixed the methods with `set` or `with`. Seems like pointl
 So that example looks ok but we can do better. 
 
 ## Making the basic builder better
-
+### Trick 1: Formatting
 The first thing I'll note is that when you're chaining methods you end up with something much more readable when you put one method per line as above. You can force an IDE to do honour this when it formats code by **adding an empty comment at the end of each line**:
 
 ```java
@@ -111,7 +111,7 @@ Book book = Book //
   .category("Novel") //
   .build();
 ```
-
+### Trick 2: Enforce mandatory fields at compile time
 Now let's improve the builder. We have to consider the `Book` object itself. It has two mandatory fields `author` and `title` and one optional field `category`. Let's make a little change to the builder. 
 
 
@@ -293,6 +293,7 @@ Book book = Book
 ```
 Yep that compiles, no problem.
 
+### Trick 3: Remove final build() call when all fields mandatory
 See that final `.build()` method? Sometimes we can get rid of that too. If every field was mandatory and they were all builder chained then you could do this:
 
 ```java

@@ -211,7 +211,7 @@ Now let's improve the builder some more. We have to consider the `Book` object i
 As the builder stands so far we have a runtime check on the mandatory fields:
 
 ```java
-// will throw NPE!
+// will throw NullPointerException because title missing!
 Book book = Book
   .author("Charles Dickens")
   .build();
@@ -315,7 +315,7 @@ Book book = Book
 ```
 Yep that compiles, no problem.
 
-### Trick 3: Remove final build() call when all fields mandatory
+### Trick 4: Remove final build() call when all fields mandatory
 See that final `.build()` method? Sometimes we can get rid of that too. If every field was mandatory and they were all builder chained then you could do this:
 
 ```java

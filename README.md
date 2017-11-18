@@ -4,8 +4,7 @@ The humble java builder pattern has been described frequently but is nearly alwa
 So what are these extra tricks?
 
  * Shortcut the `builder()` method
- * Mandatory parameters with builder chaining (not just method chaining!)
- * Get compile time indications as the class evolves with field changes
+ * Enforce mandatory parameters at compile time with *builder chaining*
  * Build generic signatures with builder chaining
  * Force formatting in IDEs of method chaining (avoid long lines of code!)
 

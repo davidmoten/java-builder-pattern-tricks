@@ -1,5 +1,5 @@
 # java-builder-pattern-tricks
-The humble java builder pattern has been described frequently but is nearly always described in a very basic form without revealing its true potential! If you push the pattern a bit harder then you get can elegant, concise, type-safe factory methods.
+The humble java builder pattern has been described frequently but is nearly always described in a very basic form without revealing its true potential! If you push the pattern a bit harder then you get can less verbosity and more compile-time safety.
 
 So what are these extra tricks?
 

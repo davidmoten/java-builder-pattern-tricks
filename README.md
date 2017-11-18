@@ -50,6 +50,7 @@ public final class Book {
         String title;
         Optional<String> category = Optional.empty();
         
+        // should not be public to force use of the static builder() method
         Builder() {
         }
         

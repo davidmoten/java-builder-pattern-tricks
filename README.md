@@ -12,7 +12,7 @@ Let's start with a basic builder pattern and then we'll improve it. We'll consid
 
 ```java
 public final class Book {
-    // Make fields final!
+    // Make fields final so we always know we've missed assigning one in the constructor!
     private final String author;
     private final String title;
     private final Optional<String> category;
@@ -105,7 +105,7 @@ Now let's improve the builder. We have to consider the `Book` object itself. It 
 
 ```java
 public final class Book {
-    // Make fields final!
+    // Make fields final so we always know we've missed assigning one in the constructor!
     private final String author;
     private final String title;
     private final Optional<String> category;

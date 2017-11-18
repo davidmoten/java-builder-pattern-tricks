@@ -13,7 +13,7 @@ So what are these extra tricks?
 ## The basic builder pattern
 Let's start with a basic builder pattern and then we'll improve it. We'll consider how to build a `Book` object.
 
-Our Book` object has:
+Our `Book` object has:
 * a mandatory `author` field
 * a mandatory `title` field
 * an optional `category` field

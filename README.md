@@ -8,6 +8,8 @@ So what are these extra tricks?
  * Enforce mandatory parameters at compile time with *builder chaining*
  * Remove final `build()` call when all fields mandatory
  * Build generic signatures with builder chaining
+ 
+ The open-source library [rxjava2-jdbc](https://github.com/davidmoten/rxjava2-jdbc) uses all these tricks to make the API easier to use!
 
 ## What's the basic builder pattern for?
 * constructor field assignments can be mixed up

@@ -25,8 +25,8 @@ public final class Book {
         Preconditions.checkArgument(builder.title.trim().length() > 0);
         Preconditions.checkNotNull(category);
         this.author = builder.author;
-        this.title = title;
-        this.category = category;
+        this.title = builder.title;
+        this.category = builder.category;
     }
     
     public String author() {
@@ -118,8 +118,8 @@ public final class Book {
         Preconditions.checkArgument(builder.title.trim().length() > 0);
         Preconditions.checkNotNull(category);
         this.author = builder.author;
-        this.title = title;
-        this.category = category;
+        this.title = builder.title;
+        this.category = builder.category;
     }
     
     public String author() {

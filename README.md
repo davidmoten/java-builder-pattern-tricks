@@ -111,9 +111,38 @@ Book book = Book //
   .category("Novel") //
   .build();
 ```
-### Trick 2: Enforce mandatory fields at compile time
-Now let's improve the builder. We have to consider the `Book` object itself. It has two mandatory fields `author` and `title` and one optional field `category`. Let's change the builder pattern to use *builder chaining*.
 
+### Trick 2: Chuck the builder() method
+
+The `builder()` method call is unnecessary if you have a mandatory field. We can replace that call with a call to one or many of the mandatory fields like `author`:
+
+So instead of the declaration:
+
+```java
+public Builder builder() {
+    return new Builder();
+}
+```
+we put:
+```java
+public Builder author(String author) {
+     return new Builder().author(author);
+}
+```
+and we reduce the visibility of the `Builder.author(String)` method (because it has already been set).
+
+Now we can call:
+
+```java
+Book book = Book //
+  .author("Charles Dickens") //
+  .title("Great Expectations") //
+  .category("Novel") //
+  .build();
+```
+Saved one line, nice!
+
+By incorporating `author` as a final field in the builder and passing it in the constructor we can clean up the internals a bit more:
 
 ```java
 public final class Book {
@@ -176,17 +205,10 @@ public final class Book {
 }
 ```
 
-The *builder()* method has been replaced with a static `author` method and the `author` method is no longer public in the builder. We've shortened the build process now by a line:
+### Trick 3: Enforce mandatory fields at compile time with builder chaining
+Now let's improve the builder some more. We have to consider the `Book` object itself. It has two mandatory fields `author` and `title` and one optional field `category`. 
 
-```java
-Book book = Book
-  .author("Charles Dickens")
-  .title("Great Expectations")
-  .category("Novel")
-  .build();
-```
-
-However, we haven't captured in a type-safe way that `title` is a mandatory field. This call below compiles but will throw a `NullPointerException` at runtime only:
+As the builder stands so far we have a runtime check on the mandatory fields:
 
 ```java
 // will throw NPE!
@@ -194,7 +216,7 @@ Book book = Book
   .author("Charles Dickens")
   .build();
 ```
-We can fix this problem with a *builder chaining* trick:
+It would be even better to get compile-time indication and this is something we can achieve with the *builder chaining* trick:
 
 ```java
 public final class Book {

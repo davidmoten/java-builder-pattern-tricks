@@ -97,7 +97,7 @@ So that example looks ok but we can do better.
 
 ## Making the basic builder better
 ### Trick 1: Formatting
-The first thing I'll note is that when you're chaining methods you end up with something much more readable when you put one method per line as above. You can force an IDE to do honour this when it formats code by **adding an empty comment at the end of each line**:
+The first thing I'll note is that when you're chaining methods you end up with something much more readable when you put one method per line. You can force an IDE to do honour this when it formats code by **adding an empty comment at the end of each line**:
 
 ```java
 Book book = Book //

@@ -9,6 +9,7 @@ So what are these extra tricks?
  * Force formatting in IDEs of method chaining (avoid long lines of code!)
 
 ## What's the builder pattern for?
+* fixes constructor parameter anonymity (improves readability and reduces chance of mixing your field assignments up)
 
 ## The basic builder pattern
 Let's start with a basic builder pattern and then we'll improve it. We'll consider how to build a `Book` object.

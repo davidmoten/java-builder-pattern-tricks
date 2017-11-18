@@ -352,7 +352,7 @@ I want a class now that builds typed *Tuples* but I want a standard build method
 Type2<Integer, String> t2 = Tuples.value(12).value("thing").build();
 Type3<Integer, String, Date> t3 = Tuples.value(12).value("thing").value(new Date()).build(); 
 ```
-This api is achieved using builder chaining where each cahined builder adds another generic signature:
+This api is achieved using builder chaining where each chained builder adds another generic signature:
 
 ```java
 public final class Tuple2<A,B> {

@@ -135,22 +135,18 @@ public final class Book {
     }
     
     public static Builder author(String author) {
-        return new Builder().author();
+        return new Builder(author);
     }
     
     public static final class Builder {
-        String author;
+        final String author;
         String title;
         Optional<String> category = Optional.empty();
         
-        Builder() {
-        }
-        
-        Builder author(String author) {
+        Builder(String author) {
             this.author = author;
-            return this;
         }
-        
+       
         public Builder title(String title) {
             this.title = title;
             return this;

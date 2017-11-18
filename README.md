@@ -1,5 +1,5 @@
 # java-builder-pattern-tricks
-The humble java builder pattern has been described frequently but is nearly always described in a very basic form without revealing its true potential! If you push the pattern a bit harder then you get can less verbosity and more compile-time safety.
+The humble java builder pattern has been described frequently but is nearly always described in a very basic form without revealing its true potential! If you push the pattern a bit harder then you get can less verbosity in your usage and more compile-time safety.
 
 So what are these extra tricks?
 
@@ -9,8 +9,9 @@ So what are these extra tricks?
  * Remove final `build()` call when all fields mandatory
  * Build generic signatures with builder chaining
 
-## What's the builder pattern for?
-* fixes constructor parameter anonymity (improves readability and reduces chance of mixing your field assignments up)
+## What's the basic builder pattern for?
+* constructor field assignments can be mixed up
+* constructor calls are not very readable because Java doesn't support named parameters
 
 ## The basic builder pattern
 Let's start with a basic builder pattern and then we'll improve it. We'll consider how to build a `Book` object.

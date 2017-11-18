@@ -17,7 +17,7 @@ public final class Book {
     private final String title;
     private final Optional<String> category;
     
-    private Book(Builder builder) {
+    Book(Builder builder) {
         //Be a bit defensive
         Preconditions.checkNotNull(builder.author);
         Preconditions.checkArgument(builder.author.trim().length() > 0);

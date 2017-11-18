@@ -8,6 +8,9 @@ So what are these extra tricks?
  * Build generic signatures with builder chaining
  * Force formatting in IDEs of method chaining (avoid long lines of code!)
 
+## What's the builder pattern for?
+
+## The basic builder pattern
 Let's start with a basic builder pattern and then we'll improve it. We'll consider how to build a `Book` object:
 
 ```java
@@ -89,6 +92,8 @@ Book book = Book
 Note that I haven't prefixed the methods with `set` or `with`. Seems like pointless noise to me but go with whatever style you like.
 
 So that example looks ok but we can do better. 
+
+## Making the basic builder better
 
 The first thing I'll note is that when you're chaining methods you end up with something much more readable when you put one method per line as above. You can force an IDE to do honour this when it formats code by **adding an empty comment at the end of each line**:
 

@@ -3,10 +3,11 @@ The humble java builder pattern has been described frequently but is nearly alwa
 
 So what are these extra tricks?
 
+ * Format the code better (long method chained lines are yuk!)
  * Shortcut the `builder()` method
  * Enforce mandatory parameters at compile time with *builder chaining*
+ * Remove final `build()` call when all fields mandatory
  * Build generic signatures with builder chaining
- * Force formatting in IDEs of method chaining (avoid long lines of code!)
 
 ## What's the builder pattern for?
 * fixes constructor parameter anonymity (improves readability and reduces chance of mixing your field assignments up)
@@ -108,7 +109,7 @@ Book book = Book //
   .build();
 ```
 
-### Trick 2: Chuck the builder() method
+### Trick 2: Shortcut the builder() method
 
 The `builder()` method call is unnecessary if you have a mandatory field. We can replace that call with a call to one or many of the mandatory fields like `author`:
 

@@ -429,14 +429,11 @@ public final class Tuples {
         }
     }
 }
+```
 
 ## Conclusion
 With luck you've seen that there is more power to the builder pattern than you realized and users of your APIs will benefit!
 
-
-
-
-```
 
 
 

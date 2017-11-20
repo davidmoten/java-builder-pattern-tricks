@@ -3,13 +3,13 @@ The humble java builder pattern has been described frequently but is nearly alwa
 
 So what are these extra tricks?
 
- * Format the code better (long method chained lines are yuk!)
+ * [Format the code better (long method chained lines are yuk!)](#whatsthebasicbuilderpatternfor)
  * Shortcut the `builder()` method
  * Enforce mandatory parameters at compile time with *builder chaining*
  * Remove final `build()` call when all fields mandatory
  * Build generic signatures with builder chaining
  
- The open-source library [rxjava2-jdbc](https://github.com/davidmoten/rxjava2-jdbc) uses all these tricks to make the API easier to use!
+ The open-source library [rxjava2-jdbc](https://github.com/davidmoten/rxjava2-jdbc) uses all these tricks to make the API easier to use.
 
 ## What's the basic builder pattern for?
 * constructor field assignments can be mixed up
@@ -429,6 +429,10 @@ public final class Tuples {
         }
     }
 }
+
+## Conclusion
+With luck you've seen that there is more power to the builder pattern than you realized and users of your APIs will benefit!
+
 
 
 

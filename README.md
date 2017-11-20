@@ -349,13 +349,20 @@ with
 ```
 
 ### Trick 5: Build generic signatures
-To demonstrate the building of generic signatures, we'll show an example with *Tuples*.
+To demonstrate the building of generic signatures, we'll show a contrived example with *Tuples*.
 
 I want a class now that builds typed *Tuples* but I want a standard build method that honours generic types:
 
 ```java
-Type2<Integer, String> t2 = Tuples.value(12).value("thing").build();
-Type3<Integer, String, Date> t3 = Tuples.value(12).value("thing").value(new Date()).build(); 
+Type2<Integer, String> t2 = Tuples
+  .value(12)
+  .value("thing")
+  .build();
+Type3<Integer, String, Date> t3 = Tuples
+  .value(12)
+  .value("thing")
+  .value(new Date())
+  .build(); 
 ```
 This api is achieved using builder chaining where each chained builder adds another generic signature:
 

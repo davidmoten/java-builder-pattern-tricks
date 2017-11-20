@@ -7,7 +7,7 @@ So what are these extra tricks?
  * [Shortcut the `builder()` method](#shortcut-the-builder-method)
  * [Enforce mandatory parameters at compile time with *builder chaining*](#trick-3-enforce-mandatory-fields-at-compile-time-with-builder-chaining)
  * [Remove final `build()` call when all fields mandatory](#trick-4-remove-final-build-call-when-all-fields-mandatory)
- * [Build generic signatures with builder chaining](#5-build-generic-signatures-with-builder-chaining)
+ * [Build generic signatures with builder chaining](#trick-5-build-generic-signatures)
  
  The open-source library [rxjava2-jdbc](https://github.com/davidmoten/rxjava2-jdbc) uses all these tricks to make the API easier to use.
 

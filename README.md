@@ -3,7 +3,7 @@ The humble java builder pattern has been described frequently but is nearly alwa
 
 So what are these extra tricks?
 
- * [Format the code better (long method chained lines are yuk!)](#whatsthebasicbuilderpatternfor)
+ * [Format the code better (long method chained lines are yuk!)](#trick-1-formatting)
  * Shortcut the `builder()` method
  * Enforce mandatory parameters at compile time with *builder chaining*
  * Remove final `build()` call when all fields mandatory

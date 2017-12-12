@@ -8,6 +8,7 @@ So what are these extra tricks?
  * [Enforce mandatory parameters at compile time with *builder chaining*](#trick-3-enforce-mandatory-fields-at-compile-time-with-builder-chaining)
  * [Remove final `build()` call when all fields mandatory](#trick-4-remove-final-build-call-when-all-fields-mandatory)
  * [Build generic signatures with builder chaining](#trick-5-build-generic-signatures)
+ * [Improve discoverability](#trick-6-improve-discoverability)
  
  The open-source library [rxjava2-jdbc](https://github.com/davidmoten/rxjava2-jdbc) uses all these tricks to make the API easier to use.
 
@@ -436,6 +437,22 @@ public final class Tuples {
         }
     }
 }
+```
+### Trick 6: Improve discoverability
+If your builder is to create a `Thing` then ideally they should be able to start the builder via a static method on `Thing`:
+
+```java
+Thing thing = Thing.name("FRED").sizeMetres(1.5).create();
+```
+If you can't add a method to `Thing` (you might not own the api) then favour use of `Things`:
+
+```java
+Thing thing = Things.name("FRED").sizeMetres(1.5).create();
+```
+For clarity reasons if you want to use a `builder` method then go for it:
+
+```java
+Thing thing = Thing.builder().name("FRED").sizeMetres(1.5).create();
 ```
 
 ## Conclusion

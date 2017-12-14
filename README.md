@@ -207,6 +207,8 @@ public final class Book {
 }
 ```
 
+Note that you may prefer to continue using the `builder()` method particularly if the class already has a number of public static methods and distinguishing your builder entry method is difficult.
+
 ### Trick 3: Enforce mandatory fields at compile time with builder chaining
 Now let's improve the builder some more. We have to consider the `Book` object itself. It has two mandatory fields `author` and `title` and one optional field `category`. 
 
@@ -449,7 +451,7 @@ If you can't add a method to `Thing` (you might not own the api) then favour use
 ```java
 Thing thing = Things.name("FRED").sizeMetres(1.5).create();
 ```
-For clarity reasons if you want to use a `builder` method then go for it:
+For clarity reasons (for example if the class already has a lot of public static methods) if you want to use a `builder` method then go for it:
 
 ```java
 Thing thing = Thing.builder().name("FRED").sizeMetres(1.5).create();

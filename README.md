@@ -11,6 +11,8 @@ So what are these extra tricks?
  * [Improve discoverability](#trick-6-improve-discoverability)
  
  The open-source library [rxjava2-jdbc](https://github.com/davidmoten/rxjava2-jdbc) uses all these tricks to make the API easier to use.
+ 
+[java-builder2](https://github.com/davidmoten/java-builder2) is a library to generate builders.
 
 ## What's the basic builder pattern for?
 * constructor field assignments can be mixed up

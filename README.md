@@ -9,7 +9,7 @@ So what are these extra tricks?
  * [Remove final `build()` call when all fields mandatory](#trick-4-remove-final-build-call-when-all-fields-mandatory)
  * [Build generic signatures with builder chaining](#trick-5-build-generic-signatures)
  * [Improve discoverability](#trick-6-improve-discoverability)
- * [Build lists](#build-lists)
+ * [Build lists](#trick-7-build-lists)
  
  The open-source library [rxjava2-jdbc](https://github.com/davidmoten/rxjava2-jdbc) uses all these tricks to make the API easier to use.
  

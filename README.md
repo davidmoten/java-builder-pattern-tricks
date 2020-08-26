@@ -496,6 +496,7 @@ public final class Group {
     }
 
     public static Builder name(String name) {
+        Preconditions.checkNotNull(name);
         return new Builder(name);
     }
 
@@ -507,7 +508,8 @@ public final class Group {
             this.name = name;
         }
 
-        Builder2 firstName(String firstName) {
+        public Builder2 firstName(String firstName) {
+            Preconditions.checkNotNull(firstName);
             return new Builder2(this, firstName);
         }
 
@@ -529,6 +531,7 @@ public final class Group {
         }
 
         public Builder3 lastName(String lastName) {
+            Preconditions.checkNotNull(firstName);
             this.lastName = lastName;
             return new Builder3(this);
         }

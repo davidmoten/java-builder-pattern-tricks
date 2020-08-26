@@ -9,7 +9,7 @@ So what are these extra tricks?
  * [Remove final `build()` call when all fields mandatory](#trick-4-remove-final-build-call-when-all-fields-mandatory)
  * [Build generic signatures with builder chaining](#trick-5-build-generic-signatures)
  * [Improve discoverability](#trick-6-improve-discoverability)
- * [Build lists](#trick-7-build-lists)
+ * [Build lists succinctly](#trick-7-build-lists-succintly)
  
  The open-source library [rxjava2-jdbc](https://github.com/davidmoten/rxjava2-jdbc) uses all these tricks to make the API easier to use.
  
@@ -459,7 +459,7 @@ For clarity reasons (for example if the class already has a lot of public static
 ```java
 Thing thing = Thing.builder().name("FRED").sizeMetres(1.5).create();
 ```
-### Trick 7: Build lists
+### Trick 7: Build lists succinctly
 Using a special chaining trick we can support the building of lists like this:
 
 ```java

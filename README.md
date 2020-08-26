@@ -464,12 +464,12 @@ Using a special chaining trick we can support the building of lists like this:
 
 ```java
 Group
-  .name("friends") //
-  .firstName("John") //
-  .lastName("Smith") //
-  .yearOfBirth(1965) //
-  .firstName("Anne") //
-  .lastName("Jones") //
+  .name("friends")
+  .firstName("John")
+  .lastName("Smith")
+  .yearOfBirth(1965)
+  .firstName("Anne")
+  .lastName("Jones")
   .build();
 ```
 In the example above `firstName` and `lastName` is mandatory and `yearOfBirth` is optional.
@@ -525,7 +525,7 @@ public final class Group {
 
         Builder2(Builder b, String firstName) {
             this.b = b;
-            this.firstName = firstName;
+            this.firstName = firstName;trick-7-build-lists-succintly
         }
 
         public Builder3 lastName(String lastName) {

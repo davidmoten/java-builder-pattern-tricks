@@ -256,33 +256,33 @@ public final class Book {
        return category;
     }
     
-    public static Builder author(String author) {
-        return new Builder(author);
+    public static BuilderHasAuthor author(String author) {
+        return new BuilderHasAuthor(author);
     }
     
-    public static final class Builder {
+    public static final class BuilderHasAuthor {
         final String author;
         String title;
         Optional<String> category = Optional.empty();
         
-        private Builder(String author) {
+        private BuilderHasAuthor(String author) {
             this.author = author;
         }
         
-        Builder2 title(String title) {
+        BuilderHasTitle title(String title) {
             this.title = title;
             return new Builder2(this);
         }
     }
     
-    public static final class Builder2 {
-        final Builder b;
+    public static final class BuilderHasTitle {
+        final BuilderHasAuthor b;
         
-        Builder2(Builder b) {
+        BuilderHasTitle(BuilderHasAuthor b) {
             this.b = b;
         }
         
-        Builder2 category(String category) {
+        BuilderHasTitle category(String category) {
             b.category = Optional.of(category);
             return this;
         }
@@ -321,6 +321,8 @@ Book book = Book
   .build();
 ```
 Yep that compiles, no problem.
+
+Note also the naming standard `BuilderHas*` that helps readability.
 
 ### Trick 4: Remove final build() call when all fields mandatory
 See that final `.build()` method? Sometimes we can get rid of that too. If every field was mandatory and they were all builder chained then you could do this:

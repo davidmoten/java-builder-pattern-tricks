@@ -11,7 +11,7 @@ So what are these extra tricks?
  * [Improve discoverability](#trick-6-improve-discoverability)
  * [Build lists succinctly](#trick-7-build-lists-succinctly)
  
- The open-source library [rxjava2-jdbc](https://github.com/davidmoten/rxjava2-jdbc) uses all these tricks to make the API easier to use.
+ The open-source library [rxjava2-jdbc](https://github.com/davidmoten/rxjava2-jdbc) uses all these tricks to make the API easier to use. See also [openapi-codegen](https://github.com/davidmoten/openapi-codegen) and [odata-client](https://github.com/davidmoten/odata-client).
  
 [java-builder2](https://github.com/davidmoten/java-builder2) is a library to generate builders.
 

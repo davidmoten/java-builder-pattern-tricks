@@ -13,7 +13,7 @@ So what are these extra tricks?
  
  The open-source library [rxjava2-jdbc](https://github.com/davidmoten/rxjava2-jdbc) uses all these tricks to make the API easier to use. See also [openapi-codegen](https://github.com/davidmoten/openapi-codegen) and [odata-client](https://github.com/davidmoten/odata-client).
 
-[chained](https://github.com/davidmoten/chained) is a nice clean minimal java annotation processor to generate chained builders 
+[chained](https://github.com/davidmoten/chained) is a nice clean minimal java annotation processor to generate chained builders, leveraging `record` types particularly.
 
 ## What's the basic builder pattern for?
 * constructor field assignments can be mixed up
